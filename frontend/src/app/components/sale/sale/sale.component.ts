@@ -8,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sale.component.css']
 })
 export class SaleComponent implements OnInit {
-  products: Product[]
+  public products: Product[]
+  public product: Product
+
 
   constructor(private productService: ProductService) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.productService.read().subscribe(products => {
       this.products = products
     })
