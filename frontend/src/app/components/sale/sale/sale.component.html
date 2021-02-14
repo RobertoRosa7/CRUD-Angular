@@ -1,22 +1,26 @@
 <mat-card>
   <mat-card-title>Ponto de Vendas</mat-card-title>
-  <form>
+  <form [formGroup]="form">
     <mat-form-field>
       <mat-label>Selecione um produto</mat-label>
-      <mat-select [(value)]="product">
-        <mat-option *ngFor="let product of products" [value]="product.id">{{product.name}}</mat-option>
+      <mat-select (selectionChange)="changeProduct($event)">
+        <mat-option *ngFor="let product of products" [value]="product">{{product.name}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field>
-      <p>PRODUTO SELECIONADO: {{product}}</p>
-      <input matInput disabled placeholder="Preço unitário" name="price" value="R$ 200,00">
+      <!-- <p>PRODUTO SELECIONADO: </p> -->
+      <mat-label>PRODUTO SELECIONADO
+        <small *ngIf="product_select" style="color: dodgerblue">{{product_select}}</small>
+      </mat-label>
+      <input matInput disabled placeholder="Preço unitário" name="price" formControlName="price">
     </mat-form-field>
     <mat-form-field>
-      <input matInput disabled placeholder="Estoque" name="estoque" value="120">
+      <input matInput disabled placeholder="Estoque" name="estoque" formControlName="quantity">
     </mat-form-field>
     <mat-form-field>
       <mat-label>Quantidade</mat-label>
-      <input matInput type="number" placeholder="Seleciona a quantidade desejada" name="quantidadeVenda">
+      <input matInput type="number" placeholder="Seleciona a quantidade desejada" formControlName="quantity"
+        name="quantidadeVenda">
     </mat-form-field>
     <button class="calcular" mat-stroked-button color="accent">Calcular</button>
     <mat-form-field class="total">

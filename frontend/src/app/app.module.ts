@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // DIRETIVAS
 import { RedDirective } from './directives/red.directive';
@@ -73,12 +73,13 @@ registerLocaleData(localPt)
     MatSnackBarModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   providers: [{
     provide: LOCALE_ID,
